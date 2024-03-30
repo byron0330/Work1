@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../static/js/vendor.bundle.js"></script>
+<script src="../static/js/common.bundle.js"></script>
+</head>
+<body>
+<script>
+var params = new URLSearchParams(window.location.search);
+var dataObj = {
+        'qryType':'biz',
+        'city' : params.get('city'),
+        'town' : params.get('town'),
+        'ptype' : '1,2',
+        'starty' : params.get('starty') || '101',
+        'startm' : params.get('startm') || '1',
+        'endy' : params.get('endy') || '112',
+        'endm' : params.get('endm') || '12',
+        'QB41': '',
+        'aa12': '',
+        'area_e': '',
+        'area_s': '',
+        'build_e': '',
+        'build_s': '',
+        'buildyear_e': '',
+        'buildyear_s': '',
+        'community': '',
+        'doorno': '',
+        'floor': '',
+        'ftype': '',
+        'nurban': '',
+        'p_purpose': '',
+        'p_unusual_yn': '',
+        'p_unusualcode': '',
+        'pattern': '',
+        'pmoney_unit': '1',
+        'price_e': '',
+        'price_s': '',
+        'rent_order': '',
+
+        'rent_type': '',
+        'tmoney_unit': '1',
+        'unit': '2',
+        'unit_price_e': '',
+        'unit_price_s': '',
+        'urban': '',
+        'urbantext': '',
+
+        'token' : 'DTF7714281053',
+};
+var a = common.loadQueryPrice2(dataObj);
+</script>
+</body>
+</html>
