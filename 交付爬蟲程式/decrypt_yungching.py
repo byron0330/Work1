@@ -34,12 +34,12 @@ def decrypt_base64(ciphertext_b64: str, key_name: str):
     return plaintext.decode('utf-8')
 
 
-def decrypt_yungching_data(ciphertext_b64: str, key_name: str = "YungChing.Buy") -> str:
+def decrypt_yungching_data(ciphertext_b64: str, key_name: str = "解密用的金鑰名稱") -> str:
     """
     解密永慶房仲前端 AES-CBC + Base64 加密資料
 
     :param ciphertext_b64: 加密過的 base64 字串（從 data 欄位取得）
-    :param key_name: 解密用的金鑰名稱（預設對應 /api/v2/list 為 "YungChing.Buy"）
+    :param key_name: 解密用的金鑰名稱
     :return: 解密後的明文 JSON 字串
     """
     try:
@@ -47,20 +47,3 @@ def decrypt_yungching_data(ciphertext_b64: str, key_name: str = "YungChing.Buy")
         return json.loads(plaintext)
     except Exception as e:
         raise RuntimeError(f"解密失敗：{e}")
-
-
-
-# === 測試 ===
-# if __name__ == "__main__":
-#     with open("format.1753754596839.json", "r", encoding="utf-8") as f:
-#         obj = json.load(f)
-    
-#     ciphertext_b64 = obj["data"]
-#     key_name = "YungChing.Buy"  # 根據 API URL 推導出來的
-    
-#     try:
-#         plaintext = decrypt_base64(ciphertext_b64, key_name)
-#         print("✅ 解密成功！明文內容如下：\n")
-#         # print(plaintext)
-#     except Exception as e:
-#         print("❌ 解密失敗：", e)
