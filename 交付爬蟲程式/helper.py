@@ -47,7 +47,6 @@ def set_headers(): #先前版本需使用，自七月永慶更改為AES加密後
     "Referer" : "https://buy.yungching.com.tw/list/",
     "cookie" :  cookie[:-1]      
     }
-    print(headers)
 
 def get_TotalPage(city,area): #取得總頁數
     url = f"https://buy.yungching.com.tw/api/v2/list?area={city}-{area}&pinType=0&isAddRoom=true&pg=1&ps=30"
@@ -71,7 +70,7 @@ def get_detail(oid): #取得詳細頁物件資料
     if r.status_code == 200:
         data = json.loads(r.text)
         result = decrypt_yungching_data(data["data"])
-        print(result)
         return result
     else:
+
         print(r.status_code)
