@@ -7,7 +7,7 @@ database = 'database'  # #資料庫
 username = 'username'  # 用戶名
 password = 'password'  # 密碼
 
-# conn = pymssql.connect(server=server, user=username, password=password, database=database)
+conn = pymssql.connect(server=server, user=username, password=password, database=database)
 
 def insert_house_data(data):
     # 新增資料至SQL
@@ -43,4 +43,5 @@ def insert_house_data(data):
         except Exception as e:
             print(f"發生錯誤: {e}")
             conn.rollback()
+
     
